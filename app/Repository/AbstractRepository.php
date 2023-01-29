@@ -5,7 +5,7 @@ use App\Repository\Interface\GenaralInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class AbstractRepository implements GenaralInterface{
+abstract class AbstractRepository implements GenaralInterface{
 
     public function __construct($model,$recusive)
     {
@@ -22,15 +22,7 @@ class AbstractRepository implements GenaralInterface{
         return  $this->recusive->getOption(0);
     }
 
-    function store(Request $req)
-    {
-        $result = $this->model->create([
-            'parent_id' => $req->parent_id,
-            "name" => $req->name,
-            'slug' => Str::slug($req->name),
-        ]);
-        return $result;
-    }
+    function store(Request $req){}
 
     function edit($id)
     {
@@ -41,16 +33,7 @@ class AbstractRepository implements GenaralInterface{
         return $result;
     }
 
-    function update(Request $req,$id)
-    {
-        $data = $this->model->find($id);
-        $result = $data->update([
-            "name" => $req->name,
-            'parent_id' => $req->parent_id,
-            'slug' => Str::slug($req->name),
-        ]);
-        return $result;
-    }
+    function update(Request $req,$id){}
 
     function delete($id)
     {

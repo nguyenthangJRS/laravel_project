@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Menu;
+namespace App\Http\Controllers\Admin\Menu;
 
 use App\Http\Controllers\Controller;
 use App\Service\MenuService;

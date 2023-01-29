@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Category\CategoryController;
-use App\Http\Controllers\Menu\MenuController;
+use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\LoginController;
-use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\Menu\MenuController;
+use App\Http\Controllers\Admin\Product\AdminProductController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ Route::group(['prefix' => 'menu'],function(){
         Route::get('show','showMenu')->name('menu.show');
         Route::get('add','create')->name('menu.add');
         Route::get('edit/{id}','edit')->name('menu.edit');
-        Route::get('delete','delete')->name('menu.delete');
+//        Route::get('delete','delete')->name('menu.delete');
         Route::get('delete/{id}','delete')->name('menu.delete');
 
         Route::post('update/{id}','update')->name('menu.update');
@@ -66,6 +66,12 @@ Route::group(['prefix' => 'login'],function (){
 Route::group(['prefix' => '/product'],function(){
     Route::controller(AdminProductController::class)->group(function(){
         Route::get('/','index')->name('product.index');
+        Route::get('add','create')->name('product.create');
+        Route::post('store','store')->name('product.store');
 
     });
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function (){
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

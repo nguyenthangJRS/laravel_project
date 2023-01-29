@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Repository\Interface\LoginInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LoginRepository implements LoginInterface{
 

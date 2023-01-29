@@ -7,10 +7,14 @@ use App\Component\RecusiveCategory;
 use App\Repository\Interface\CategoryInterface;
 use App\Repository\Interface\LoginInterface;
 use App\Repository\Interface\MenuInterface;
+use App\Repository\Interface\ProductInterface;
 use App\Repository\LoginRepository;
 use App\Repository\MenuRepository;
+use App\Repository\ProductRepository;
 use App\Service\Interface\LoginServiceInterface;
+use App\Service\Interface\ProductServiceInterface;
 use App\Service\LoginService;
+use App\Service\ProductService;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
@@ -31,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(RecusiveAbstract::class,RecusiveCategory::class);
         $this->app->bind(LoginInterface::class,LoginRepository::class);
         $this->app->bind(LoginServiceInterface::class,LoginService::class);
+        $this->app->bind(ProductInterface::class,ProductRepository::class);
     }
 
     /**

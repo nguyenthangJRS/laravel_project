@@ -1,0 +1,10 @@
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: aliceblue;
+    color: black;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    padding-left: 10px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 16px;
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Category;
+namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -30,7 +30,7 @@ class CategoryController extends Controller
 
     public function store(Request $req){
         $this->categoryService->store($req);
-        return redirect()->route('admin.categories.show');
+        return redirect()->route('categories.show');
     }
 
     public function edit($id)
@@ -48,7 +48,7 @@ class CategoryController extends Controller
     public function delete($id)
     {
         $this->categoryService->delete($id);
-        return redirect()->route('admin.categories.show');
+        return redirect()->route('categories.show');
     }
 
     public function show_deleted()
